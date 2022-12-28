@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"time"
 
 	pb "uditsharma.com/grpc-go-module/greet/proto"
 )
@@ -12,7 +13,7 @@ func (s *Server) GreetManyTimes(in *pb.GreetRequest, stream pb.GreetService_Gree
 
 	for i := 0; i < 10; i++ {
 		res := fmt.Sprintf("Hello %s,number %d", in.FirstName, i+1)
-
+		time.Sleep(1000000)
 		stream.Send(&pb.GreetResponse{
 			Result: res,
 		})

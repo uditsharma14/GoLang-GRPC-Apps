@@ -19,6 +19,8 @@ func main() {
 
 	c := pb.NewGreetServiceClient(conn)
 
+	d := pb.NewPrimeFactorServiceClient(conn)
+
 	//d := pb.NewGetSumServiceClient(conn)
 
 	//doGreet(c)
@@ -26,5 +28,7 @@ func main() {
 	defer conn.Close()
 
 	doGreetManyTimes(c)
+	getPrimeFactor(d)
+	doLongGreet(c)
 
 }
