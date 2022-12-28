@@ -16,5 +16,6 @@ string result =1;
 
 
 service GreetService{
-    rpc greet(GreetRequest) returns (GreetResponse);
+    rpc Greet(GreetRequest) returns (GreetResponse);
+    rpc GreetManyTimes(GreetRequest) returns (stream GreetResponse);
 }

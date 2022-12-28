@@ -18,10 +18,13 @@ func main() {
 	}
 
 	c := pb.NewGreetServiceClient(conn)
-	d := pb.NewGetSumServiceClient(conn)
 
-	doGreet(c)
-	doSum(d)
+	//d := pb.NewGetSumServiceClient(conn)
 
+	//doGreet(c)
+	//doSum(d)
 	defer conn.Close()
+
+	doGreetManyTimes(c)
+
 }
