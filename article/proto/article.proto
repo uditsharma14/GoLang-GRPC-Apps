@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package article;
+
+option go_package = "uditsharma.com/grpc-go-module/article/proto";
+
+import "google/protobuf/empty.proto";
+
+
+message Article {
+    string id = 1; 
+    string author_id =2; 
+    string title =3; 
+    string content =4;
+}
+
+message ArticleId{
+    string id =1;
+}
+
+service ArticleService{
+    rpc CreateArticle(Article) returns (ArticleId);
+    rpc UpdateArticle(ArticleId) returns (ArticleId);
+    rpc DeleteArticle(ArticleId) returns (ArticleId);
+    rpc ReadArticle(ArticleId) returns (ArticleId);
+    rpc ListArticles(google.protobuf.Empty) returns(stream Article);
+}

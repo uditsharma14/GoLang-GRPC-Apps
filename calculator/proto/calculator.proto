@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package greet;
+
+
+option go_package = "uditsharma.com/grpc-go-module/calculator/proto";
+
+message PrimeFactorRequest{
+uint64 number =1;
+}
+
+message CalculteAverageRequest{
+    uint64 numer =1;
+}
+
+
+message CalculateAverageResponse{
+    float average_value =1;
+}
+
+
+message PrimeFactorResponse{
+uint64 primeFactor =1;
+}
+
+
+service PrimeFactorService{
+    rpc GetPrimeFactors(PrimeFactorRequest) returns (stream PrimeFactorResponse);
+    rpc GetAverage(stream CalculteAverageRequest) returns (CalculateAverageResponse);
+}
