@@ -45,6 +45,6 @@ func main() {
 	s := grpc.NewServer()
    	pb.RegisterArticleServiceServer(s,&Server{});
 	if err = s.Serve(lis); err != nil {
-		log.Fatalf("failed to server %v\n", err)
+		log.Fatalf("Failed to serve %v\n", err)
 	}
 }
